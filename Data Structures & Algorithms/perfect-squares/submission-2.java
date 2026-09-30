@@ -1,0 +1,16 @@
+class Solution {
+
+    int[] dp;
+    public int numSquares(int n) {
+        dp= new int[n+1];
+
+        dp[0]=0;
+        for(int x=1; x<=n; x++){
+            dp[x]= n+1;
+            for(int i=1; i*i<=x; i++) dp[x]=Math.min(dp[x],1+dp[x-i*i]);
+        }
+
+        return dp[n];
+    }
+    
+}
